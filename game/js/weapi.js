@@ -3,7 +3,7 @@
  */
 
 var currUrl = window.location.href.replace(window.location.hash, '');
-$.getJSON('http://www.quyihang.com/weapp/signature.php?url=' + encodeURIComponent(currUrl)).done(function(data) {
+$.getJSON('/weapp/signature.php?url=' + encodeURIComponent(currUrl)).done(function(data) {
     wx.config({
         debug: true,
         appId: data.appId,

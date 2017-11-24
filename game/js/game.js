@@ -18,9 +18,9 @@ var finished = false;
 function load(){
     var url;
     if(city == 'shanghai'){
-        url = 'http://www.quyihang.com/streetgame/backstage/load.php?city_index=0';
+        url = '/streetgame/backstage/load.php?city_index=0';
     }else if(city == 'beijing') {
-        url = 'http://www.quyihang.com/streetgame/backstage/load.php?city_index=1';
+        url = '/streetgame/backstage/load.php?city_index=1';
     }
     pic_arr = load_request(url,1000, update_pic);
     document.addEventListener('touchstart',touch,false);
@@ -187,9 +187,9 @@ function load(){
     function update_pic(pic_arr){
         var i = arguments[1]?arguments[1]:0;
         if(city == 'shanghai'){
-            document.getElementById("streetimg").src = "http://www.citory.net/data/streetgame/shanghai_outring_50m/"+pic_arr[i]['jpg_name']+".jpg";
+            document.getElementById("streetimg").src = "http://120.26.51.49/data/streetgame/shanghai_outring_50m/"+pic_arr[i]['jpg_name']+".jpg";
         }else if(city == 'beijing'){
-            document.getElementById("streetimg").src = "http://www.citory.net/data/streetgame/beijing_5ring_50m/"+pic_arr[i]['jpg_name']+".jpg";
+            document.getElementById("streetimg").src = "http://120.26.51.49/data/streetgame/beijing_5ring_50m/"+pic_arr[i]['jpg_name']+".jpg";
         }
         if(i<=1){
             console.log(pic_arr);
@@ -200,7 +200,7 @@ function load(){
     function get_ip(){
         var request = new XMLHttpRequest();
         // request.open("GET", "http://jsonip.com/?callback=?");
-        request.open("GET", "http://www.quyihang.com/streetgame/backstage/load.php?city_index=1/");
+        request.open("GET", "/streetgame/backstage/load.php?city_index=1/");
         request.onreadystatechange = function(){
             if(request.status == 200){
                 console.log(request.response);
@@ -210,7 +210,7 @@ function load(){
     }
 
     function send_score(callback){
-        var commit_url = "http://www.quyihang.com/streetgame/backstage/commit.php";
+        var commit_url = "/streetgame/backstage/commit.php";
         $.post(commit_url,{ip:ip_local,score:totalgoal})
             .done(function (data) {
                 callback();
