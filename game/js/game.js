@@ -85,7 +85,7 @@ function load(){
                     if(pic_index >= pic_index_max){
                         finished = true;
                         send_score(edit_title);
-                        document.getElementById('score').innerHTML = '分享朋友圈，获得总得分';
+                        // document.getElementById('score').innerHTML = '分享朋友圈，获得总得分';
                     }else{
                         var realAngle = Number(global_pic_arr[pic_index]['jpg_direction']);
                         console.log(pic_index+','+global_pic_arr[pic_index]['jpg_name']+','+global_pic_arr[pic_index]['jpg_direction']);
@@ -108,11 +108,11 @@ function load(){
                         if(pic_index<pic_index_max){
                             update_pic(global_pic_arr, pic_index);
                             question_index+=1;
-                            document.getElementById('question_index').innerHTML = '题目：'+question_index+'10';
+                            document.getElementById('question_index').innerHTML = '题目：'+question_index+'/10';
                             $(".circle").each(function(){
                                 $(this).removeClass("checked");
                             });
-                            $(".circle:eq("+question_index+")").addClass("checked");
+                            $(".circle:eq("+(question_index-1)+")").addClass("checked");
                         }
                     }
                     if(pic_index == 2){
