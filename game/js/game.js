@@ -85,7 +85,7 @@ function load(){
                     if(pic_index >= pic_index_max){
                         finished = true;
                         send_score(edit_title);
-                        // document.getElementById('score').innerHTML = '分享朋友圈，获得总得分';
+                        document.getElementById('score').innerHTML = '总得分：'+totalgoal;
                     }else{
                         var realAngle = Number(global_pic_arr[pic_index]['jpg_direction']);
                         console.log(pic_index+','+global_pic_arr[pic_index]['jpg_name']+','+global_pic_arr[pic_index]['jpg_direction']);
