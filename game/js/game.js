@@ -15,6 +15,7 @@ var ip_local = '0.0.0.0';
 var city = 'beijing';
 var pass_count = 0;
 var finished = false;
+var question_index = 1;
 function load(){
     var url;
     if(city == 'shanghai'){
@@ -103,9 +104,15 @@ function load(){
                         }
                         totalgoal += goal;
                         pic_index += 1;
-                        document.getElementById('score').innerHTML = '得分：'+goal;
+                        document.getElementById('question_index').innerHTML = '得分：'+totalgoal;
                         if(pic_index<pic_index_max){
                             update_pic(global_pic_arr, pic_index);
+                            question_index+=1;
+                            document.getElementById('question_index').innerHTML = '题目：'+question_index+'10';
+                            $(".circle").each(function(){
+                                $(this).removeClass("checked");
+                            });
+                            $(".circle:eq("+question_index+")").addClass("checked");
                         }
                     }
                     if(pic_index == 2){
