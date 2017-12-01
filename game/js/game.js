@@ -1,10 +1,5 @@
 /**
  * Created by qu on 2017/3/25.
- * 待完成：
- * 1. 初始选择北京还是上海，已完成
- * 2. ip和总分传给我，待完成(ip get不到啊)
- * 3. 3次pass
- * 4. 每次显示角度，完成
  */
 
 var totalgoal = 0;
@@ -82,10 +77,11 @@ function load(){
                     }
                 }
                 if(istaped==true&&ismoved==false){   // 模拟tap事件
-                    if(pic_index >= pic_index_max){
+                    if(pic_index >= pic_index_max){ // 游戏做完
                         finished = true;
                         send_score(edit_title);
-                        document.getElementById('score').innerHTML = '总得分：'+totalgoal;
+                        show_pane_final();
+                        // document.getElementById('score').innerHTML = '总得分：'+totalgoal;
                     }else{
                         var realAngle = Number(global_pic_arr[pic_index]['jpg_direction']);
                         console.log(pic_index+','+global_pic_arr[pic_index]['jpg_name']+','+global_pic_arr[pic_index]['jpg_direction']);
@@ -229,5 +225,82 @@ function load(){
     }
 }
 
+
+
+$(document).ready(function () {
+    $("#taketest").on("click", function () {
+        $("#pane").fadeOut();
+    });
+    $("#beijing").on("click", function () {
+        $("#pane2").fadeOut();
+        load();
+    });
+    $("#shanghai").on("click", function () {
+        $("#pane2").fadeOut();
+        load();
+    });
+})
+
+
+var randomScalingFactor = function() {
+    return Math.round(Math.random() * 100);
+};
+
+
+function show_pane_final() {
+    $("#pane_final").fadeIn(function () {
+        $("#main").hide();
+        console.log("123");
+        function Circle() {
+            this.radius = 80;    // 圆环半径
+            this.lineWidth = 20;  // 圆环边的宽度
+            this.strokeStyle = 'white'; //边的颜色
+            this.fillStyle = 'rgb(156,190,183)';  //填充色
+            this.lineCap = 'round';
+        }
+         
+        Circle.prototype.draw = function(ctx) {
+            ctx.beginPath();
+            ctx.arc(100, 100, this.radius, 0, Math.PI*2, true);  // 坐标为250的圆，这里起始角度是0，结束角度是Math.PI*2
+            ctx.lineWidth = this.lineWidth;
+            ctx.strokeStyle = this.strokeStyle;
+            ctx.stroke();  // 这里用stroke画一个空心圆，想填充颜色的童鞋可以用fill方法
+        };
+
+        function Ring(startAngle, percent) {
+            Circle.call(this);
+            this.startAngle = startAngle || 3*Math.PI/2; //弧起始角度
+            this.percent = percent;  //弧占的比例
+        }
+         
+        Ring.prototype = Object.create(Circle.prototype);
+         
+        Ring.prototype.drawRing = function(ctx) {
+             this.draw(ctx);
+             ctx.beginPath();
+             var anglePerSec = 2 * Math.PI / (100 / this.percent); // 蓝色的弧度
+             ctx.arc(100, 100, this.radius, this.startAngle, this.startAngle + anglePerSec, false); //这里的圆心坐标要和cirle的保持一致
+             ctx.strokeStyle = this.fillStyle;
+             ctx.lineCap = this.lineCap;
+             ctx.stroke();
+             ctx.closePath();
+        }
+
+        $("#score-donut").text(totalgoal);
+        if(totalgoal>60){
+            $("#score-rank").text("男友力max的活地图！");
+        }else if (totalgoal>35){
+            $("#score-rank").text("您的方向感超级好！赞！");
+        }else if (totalgoal>15){
+            $("#score-rank").text("亲，出门记得看地图哦！");
+        }else {
+            $("#score-rank").text("呃，I'm Sorry...");
+        }
+        var canvas = document.getElementById('canvas');
+        var ctx =  canvas.getContext('2d');
+        var ring = new Ring(0, totalgoal);  // 从2*Math.PI/3弧度开始，进度为50%的环
+        ring.drawRing(ctx);
+    });
+}
 
 // window.addEventListener('load',load,false);

@@ -11,8 +11,10 @@
 
     <link rel="stylesheet" href="lib/bootstrap.min.css" type="text/css">
     <script href="lib/bootstrap.min.js"></script>
-    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
-
+    <!-- <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script> -->
+    <!-- <script src="lib/chart.min.js"></script> -->
+    <!-- <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
     <!--
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="js/weapi.js"></script>
@@ -22,8 +24,8 @@
 </head>
 
 <body>
-    <div id="pane" >
-        <div id="directiontest">
+    <div id="pane">
+        <div class="directiontest">
             <div>方向感测试</div>
             <img src="icons/welcome/direction-small.gif" style="width:80%;margin-top:5%;">
             <img src="icons/welcome/welcome.png" style="width:100%;margin-top:5%;">
@@ -37,8 +39,8 @@
     <div class="icon beijing"><img src="icons/beijing.png" class="c"></div> -->
         <!-- <div id="tip">tip:点击街道照片可以跳过<br>您有三次跳过机会</div> -->
     </div>
-    <div id="pane2" >
-        <div id="directiontest">
+    <div id="pane2">
+        <div class="directiontest">
             <div>选择城市</div>
             <div>Pick a City</div>
             <div style="height:200px;width:100%;"></div>
@@ -66,55 +68,74 @@
                 <br>您有三次跳过机会</div> -->
         </div>
     </div>
-    <div id="imgdiv">
-        <img src="timg2.png" id="streetimg">
+    <div id="pane_final" style="width:100%;height:100%;overflow-y:scroll;">
+        <div class="directiontest" style="top:0%;">
+            <img src="icons/results/gif_con_mad.gif" style="width:300px">
+            <div class="inner-white-text">恭喜完成测试！</div>
+            <div class="inner-white-text">总得分</div>
+            <div>
+                <canvas height="200" id="canvas" width="200"></canvas>
+                <div id="score-donut" style="position:absolute;color:rgb(156,190,183);top:236px;left: calc(50% - 17.1px);font-size:xx-large;">68</div>
+            </div>
+            <div class="inner-white-text">测试结果：</div>
+            <div id="score-rank">男友力max的活地图！</div>
+            <div style="font-size:medium;margin-top:10px;">
+                <img src="icons/results/share.png" width="20px">分享结果到朋友圈</div>
+            <div style="font-size:medium;margin-top:10px;">关注我们</div>
+            <img src="icons/results/logo.png" style="width:200px;">
+        </div>
     </div>
-    <div id="score">
-        <div style="margin:auto;width:344px;">
-            <div style="float:left;width:72px;">
-                <img src="icons/score/score-left.png">
-                <div style="position:relative;font-size:x-small;top:-22px;left:4px;" id="question_index">题目：1/10</div>
-            </div>
-            <div style="float:left;margin-top: 9px;">
-                <div class="circle checked"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-            </div>
-            <div style="float:left;width:72px;">
-                <img src="icons/score/score-right.png">
-                <div style="position:relative;font-size:x-small;top:-22px;left:12px;" id="total_score">得分：0</div>
-            </div>
-            <!-- <div style="float:left;">
+    <div id="main" style="width:100%;height:100%">
+        <div id="imgdiv">
+            <img src="timg2.png" id="streetimg">
+        </div>
+        <div id="score">
+            <div style="margin:auto;width:344px;">
+                <div style="float:left;width:72px;">
+                    <img src="icons/score/score-left.png">
+                    <div style="position:relative;font-size:x-small;top:-22px;left:4px;" id="question_index">题目：1/10</div>
+                </div>
+                <div style="float:left;margin-top: 9px;">
+                    <div class="circle checked"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div style="float:left;width:72px;">
+                    <img src="icons/score/score-right.png">
+                    <div style="position:relative;font-size:x-small;top:-22px;left:12px;" id="total_score">得分：0</div>
+                </div>
+                <!-- <div style="float:left;">
                 <img src="icons/score/score-right.png">
                 <div style="position:absolute;font-size:large;">得分：10</div>
             </div> -->
+            </div>
         </div>
-    </div>
-    <div id="testcss">
-        <div id="N">N</div>
-        <div id="S">S</div>
-        <div id="E">E</div>
-        <div id="W">W</div>
-        <div id="pan-inner">
-            <div style="height: 2px;width: 100%;margin: 64px 0; background: black;position:absolute;transform: rotate(45deg);"></div>
-            <div style="height: 4px;width: 84%;margin: 63px 8%; background: #989999;position:absolute;transform: rotate(45deg);"></div>
-            <div style="height: 100%;width: 2px;margin: 0 64px; background: black;position:absolute;transform: rotate(45deg);"></div>
-            <div style="height: 84%;width: 4px;margin: 8% 63px; background: #989999;position:absolute;transform: rotate(45deg);"></div>
-            <div class="triangle" style="margin-left: 55px;margin-top:10px;transform: rotate(0deg);"></div>
-            <div class="triangle" style="margin-left: 100px;margin-top:55px;transform: rotate(90deg);"></div>
-            <div class="triangle" style="margin-left: 55px;margin-top:100px;transform: rotate(180deg);"></div>
-            <div class="triangle" style="margin-left: 10px;margin-top:55px;transform: rotate(270deg);"></div>
+        <div id="testcss">
+            <div id="N">N</div>
+            <div id="S">S</div>
+            <div id="E">E</div>
+            <div id="W">W</div>
+            <div id="pan-inner">
+                <div style="height: 2px;width: 100%;margin: 64px 0; background: black;position:absolute;transform: rotate(45deg);"></div>
+                <div style="height: 4px;width: 84%;margin: 63px 8%; background: #989999;position:absolute;transform: rotate(45deg);"></div>
+                <div style="height: 100%;width: 2px;margin: 0 64px; background: black;position:absolute;transform: rotate(45deg);"></div>
+                <div style="height: 84%;width: 4px;margin: 8% 63px; background: #989999;position:absolute;transform: rotate(45deg);"></div>
+                <div class="triangle" style="margin-left: 55px;margin-top:10px;transform: rotate(0deg);"></div>
+                <div class="triangle" style="margin-left: 100px;margin-top:55px;transform: rotate(90deg);"></div>
+                <div class="triangle" style="margin-left: 55px;margin-top:100px;transform: rotate(180deg);"></div>
+                <div class="triangle" style="margin-left: 10px;margin-top:55px;transform: rotate(270deg);"></div>
+            </div>
         </div>
-    </div>
-    <div id="OKbtn">
-        <div style="margin:12px 10px;font-size: large;">OK</div>
+        <div id="OKbtn">
+            <div style="margin:12px 10px;font-size: large;">OK</div>
+        </div>
     </div>
 </body>
 
