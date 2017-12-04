@@ -83,6 +83,7 @@ function load() {
                         console.log(pic_index + ',' + global_pic_arr[pic_index]['jpg_name'] + ',' + global_pic_arr[pic_index]['jpg_direction']);
                         oldangle = parseInt(oldangle);
                         var diff = Math.abs(oldangle - realAngle);
+                        global_pic_arr[pic_index]['user_angle'] = oldangle;
                         var goal = 0;
                         if (diff > 180) {
                             diff = 360 - diff;
@@ -94,6 +95,7 @@ function load() {
                         } else {
                             goal = 0;
                         }
+                        global_pic_arr[pic_index]['user_score'] = goal;
                         totalgoal += goal;
                         pic_index += 1;
                         document.getElementById('total_score').innerHTML = '得分：' + totalgoal;
@@ -125,7 +127,7 @@ function load() {
                         pic_index_max += 1;
                         pass_count += 1;
                         istaped_pic = false;
-                        document.getElementById('score').innerHTML = '您还有' + (3 - pass_count) + '次跳过机会';
+                        // document.getElementById('score').innerHTML = '您还有' + (3 - pass_count) + '次跳过机会';
                     }
                 }
                 ismoved = false;
@@ -197,21 +199,31 @@ function load() {
     }
 
     function get_ip() {
-        var request = new XMLHttpRequest();
+        // var request = new XMLHttpRequest();
         // request.open("GET", "http://jsonip.com/?callback=?");
-        htmlobj=$.ajax({url:"http://jsonip.com/"});
-        request.open("GET", "/streetgame/backstage/load.php?city_index=1/");
-        request.onreadystatechange = function () {
-            if (request.status == 200) {
-                console.log(request.response);
-                ip_local = eval('(' + request.response + ')')[0];
+        // htmlobj=$.ajax({url:"http://jsonip.com/"});
+        $.ajax({
+            url: "http://pv.sohu.com/cityjson",
+            success: function(result){
+                console.log(result);
             }
-        }
+        });
+        // $.get("http://pv.sohu.com/cityjson", function(result){
+        //     console.log("test");
+        //     ip_local = eval('(' + request.response + ')')[0];
+        // })
+        // request.open("GET", "/streetgame/backstage/load.php?city_index=1/");
+        // request.onreadystatechange = function () {
+        //     if (request.status == 200) {
+        //         console.log(request.response);
+        //         ip_local = eval('(' + request.response + ')')[0];
+        //     }
+        // }
     }
 
     function send_score(callback) {
         var commit_url = "/streetgame/backstage/commit.php";
-        $.post(commit_url, { ip: ip_local, score: totalgoal })
+        $.post(commit_url, { ip: ip_local, score: totalgoal, detail: global_pic_arr })
             .done(function (data) {
                 callback();
             });

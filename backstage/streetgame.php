@@ -19,13 +19,15 @@
 				$obj = (object) null;
 				$obj -> jpg_name = $row[5];
 				$obj -> jpg_direction = $row[6];
+				$obj -> user_angle = -999;
+				$obj -> user_score = -999;
 				array_push($pic_arr,$obj);
 			}
 			return $pic_arr;
 		}
 		
-		public function insertRecord($ip='0.0.0.0',$score=0){
-			$sql = "INSERT INTO cityscape_join.user_score(ip,score) VALUES ('".(string)$ip."',".(string)$score.")";
+		public function insertRecord($ip='0.0.0.0',$score=0,$detail=''){
+			$sql = "INSERT INTO cityscape_join.user_score(ip,score,detail,submit_time) VALUES ('".(string)$ip."',".(string)$score.",'".(string)json_encode($detail)."',now())";
 			pg_query($this->con, $sql);
 		}
 	}
