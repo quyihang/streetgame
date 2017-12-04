@@ -199,6 +199,7 @@ function load() {
     function get_ip() {
         var request = new XMLHttpRequest();
         // request.open("GET", "http://jsonip.com/?callback=?");
+        htmlobj=$.ajax({url:"http://jsonip.com/"});
         request.open("GET", "/streetgame/backstage/load.php?city_index=1/");
         request.onreadystatechange = function () {
             if (request.status == 200) {
