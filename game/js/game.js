@@ -260,6 +260,13 @@ $(document).ready(function () {
         $("#pane2").fadeOut();
         load();
     });
+    $("#describe-1").on("click", function() {
+        $("#describe-1").hide();
+        $("#describe-2").show();
+    });
+    $("#describe-2").on("click", function() {
+        $("#describe-2").hide();
+    });
 });
 
 

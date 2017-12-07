@@ -88,6 +88,19 @@
         </div>
     </div>
     <div id="main" style="width:100%;height:100%;background:black;">
+        <!-- 玩法说明 -->
+        <div id="describe-1" style="position:absolute;width:100%;height:100%;background:rgba(11,11,11,0.45)">
+            <div style="width:100%;position:absolute;bottom:45%;">
+                <div style="border:1px dashed white;color:white;font-size:medium;width:80%;margin:auto;padding:10px;">玩法：观察图片，旋转罗盘，点击白色按钮<br>您有三次机会点击图片跳过</div>
+            </div>
+        </div>
+        <div id="describe-2" style="display:none;position:absolute;width:100%;height:100%;background:rgba(11,11,11,0.45)">
+            <div style="width:100%;position:absolute;bottom:5%;text-align:center;">
+                <div><img src="icons/arrow--.png" style="width:280px;"></div>
+                <div><img src="icons/hand.png" style="width:100px;margin-left: 25px;margin-top: 120px;"></div>
+            </div>
+        </div>
+
         <div id="imgdiv">
             <img src="timg2.png" id="streetimg">
         </div>
@@ -99,7 +112,7 @@
             <div style="margin:auto;width:344px;">
                 <div style="float:left;width:72px;">
                     <!-- <img src="icons/score/score-left.png"> -->
-                    <div style="position:relative;font-size:x-small;top:-22px;left:4px;color:black;" id="total_score">xxxxxxx</div>
+                    <div style="position:relative;font-size:x-small;top:-22px;left:4px;color:black;display:none;" id="total_score">xxxxxxx</div>
                 </div>
                 <div style="float:left;margin-top: 9px;">
                     <div class="circle checked"></div>
