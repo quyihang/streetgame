@@ -104,6 +104,8 @@ function load() {
                             update_pic(global_pic_arr, pic_index);
                             question_index += 1;
                             document.getElementById('question_index').innerHTML = question_index + '/10';
+                            document.getElementById('true_angle').innerHTML = '正确答案：' + realAngle;
+                            document.getElementById('this_score').innerHTML = '得分：' + goal;
                             $(".circle").each(function () {
                                 $(this).removeClass("checked");
                             });
