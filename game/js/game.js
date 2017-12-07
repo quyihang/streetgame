@@ -82,7 +82,7 @@ function load() {
                     } else {
                         var realAngle = Number(global_pic_arr[pic_index]['jpg_direction']);
                         console.log(pic_index + ',' + global_pic_arr[pic_index]['jpg_name'] + ',' + global_pic_arr[pic_index]['jpg_direction']);
-                        oldangle = parseInt(oldangle);
+                        oldangle = parseInt(360.0-oldangle);
                         var diff = Math.abs(oldangle - realAngle);
                         global_pic_arr[pic_index]['user_angle'] = oldangle;
                         var goal = 0;
