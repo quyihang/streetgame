@@ -74,6 +74,7 @@ function load() {
                     }
                 }
                 if (istaped == true && ismoved == false) {   // 模拟tap事件
+                    show_pane_final();
                     if (pic_index >= pic_index_max) { // 游戏做完
                         finished = true;
                         send_score(edit_title);

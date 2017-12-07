@@ -148,7 +148,7 @@ div{
     position: absolute;
     /* left: -3%;
     top: -3%; */
-    background: #C1EBFF;
+    background: white;
     z-index: 105;
 }
 #pane2 {
@@ -193,6 +193,14 @@ div{
     1px -1px #000,
     -1px 1px #000,
     1px 1px #000;
+}
+.inner-white-text-green {
+    color: white;
+    text-shadow: 
+    -1px -1px rgb(156,190,183),
+    1px -1px rgb(156,190,183),
+    -1px 1px rgb(156,190,183),
+    1px 1px rgb(156,190,183);
 }
 .button {
     width: 150px;
