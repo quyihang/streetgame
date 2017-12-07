@@ -99,7 +99,7 @@ function load() {
                         global_pic_arr[pic_index]['user_score'] = goal;
                         totalgoal += goal;
                         pic_index += 1;
-                        document.getElementById('total_score').innerHTML = '得分：' + totalgoal;
+                        document.getElementById('total_score').innerHTML = + totalgoal;
                         if (pic_index < pic_index_max) {
                             update_pic(global_pic_arr, pic_index);
                             question_index += 1;
