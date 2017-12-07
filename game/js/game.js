@@ -12,6 +12,7 @@ var pass_count = 0;
 var finished = false;
 var question_index = 1;
 function load() {
+    init_pan();
     var url;
     if (city == 'shanghai') {
         url = '/streetgame/backstage/load.php?city_index=0';
@@ -100,7 +101,7 @@ function load() {
                         if (pic_index < pic_index_max) {
                             update_pic(global_pic_arr, pic_index);
                             question_index += 1;
-                            document.getElementById('question_index').innerHTML = '题目：' + question_index + '/10';
+                            document.getElementById('question_index').innerHTML = question_index + '/10';
                             $(".circle").each(function () {
                                 $(this).removeClass("checked");
                             });
@@ -153,7 +154,15 @@ function load() {
                         angle = 180 - angle;
                     }
                     angle -= startangle;
+                    angle_ = -angle;
                     $("#testcss").css("transform", "rotate(" + angle + "deg)");
+                    $("#N").css("transform", "rotate(" + angle_ + "deg)");
+                    $("#W").css("transform", "rotate(" + angle_ + "deg)");
+                    $("#S").css("transform", "rotate(" + angle_ + "deg)");
+                    $("#E").css("transform", "rotate(" + angle_ + "deg)");
+                    $(".angle_numbers").each(function(){
+                        $(this).css("transform", "rotate(" + angle_ + "deg)");
+                    });
                 }
                 break;
         }
@@ -236,7 +245,20 @@ $(document).ready(function () {
         $("#pane2").fadeOut();
         load();
     });
-})
+});
+
+
+
+function init_pan() {
+    var left_list = [125,180,220,235,220,180, 118,63,22,8,22,62];
+    var top_list = [15,29,70,125,180,220, 235,220,180,125,70,29];
+    var i = 0;
+    $(".angle_numbers").each(function(){
+        $(this).css("left", left_list[i]-5);
+        $(this).css("top", top_list[i]-8);
+        i+=1;
+    });
+}
 
 
 var randomScalingFactor = function () {

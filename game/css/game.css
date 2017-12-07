@@ -22,8 +22,10 @@ div{
 #score{
     width:100%;
     height: 40px;
-    /* position: absolute;
-    top:50%;
+    position: absolute;
+    bottom: 2%;
+    color: white;
+    /* top:50%;
     text-align:center;
     font-size: large;
     z-index: 99; */
@@ -49,46 +51,59 @@ div{
 #testcss{
     position: absolute;
     left:50%;
-    bottom:2%;
+    bottom:10%;
     margin-left: -125px;
     width: 250px;
     height:250px;
-    background: -webkit-radial-gradient(white, #aaa, black); /* Safari 5.1 - 6.0 */
-    background: -o-radial-gradient(white, #aaa, black); /* Opera 11.6 - 12.0 */
-    background: -moz-radial-gradient(white, #aaa, black); /* Firefox 3.6 - 15 */
-    background: radial-gradient(white, #aaa, black); /* 标准的语法（必须放在最后） */
+    /* background: -webkit-radial-gradient(white, #aaa, black);
+    background: -o-radial-gradient(white, #aaa, black); 
+    background: -moz-radial-gradient(white, #aaa, black); 
+    background: radial-gradient(white, #aaa, black);  */
     border-radius:50%;
     font-family: "Microsoft YaHei";
     color: white;
-    text-shadow: 3px 3px #989999;
+    /* text-shadow: 3px 3px #989999; */
     font-weight: bolder;
 }
 #N{
     position: absolute;
     left:50%;
-    top:8%;
-    margin-left: -10px;
+    top:18%;
+    margin-left: -5px;
+    font-size: medium;
+    font-weight: 100;
 }
 #S{
     position: absolute;
     left:50%;
-    bottom:8%;
-    margin-left: -10px;
-    transform: rotate(180deg);
+    bottom:18%;
+    margin-left: -5px;
+    font-size: medium;
+    font-weight: 100;
+    /* transform: rotate(180deg); */
 }
 #E{
     position: absolute;
-    right:8%;
+    right:20%;
     top:50%;
-    margin-top: -10px;
-    transform: rotate(90deg);
+    margin-top: -12px;
+    font-size: medium;
+    font-weight: 100;
+    /* transform: rotate(90deg); */
 }
 #W{
     position: absolute;
-    left:8%;
+    left:20%;
     top:50%;
-    margin-top: -10px;
-    transform: rotate(270deg);
+    margin-top: -12px;
+    font-size: medium;
+    font-weight: 100;
+    /* transform: rotate(270deg); */
+}
+.angle_numbers {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 100;
 }
 #pan-inner{
     position: absolute;
@@ -115,15 +130,12 @@ div{
 #OKbtn {
     position:absolute;
     left:50%;
-    width:50px;
-    height:50px;
-    margin-left:-25px;
-    background: -webkit-radial-gradient(white, #888, black); /* Safari 5.1 - 6.0 */
-    background: -o-radial-gradient(white, #888, black); /* Opera 11.6 - 12.0 */
-    background: -moz-radial-gradient(white, #888, black); /* Firefox 3.6 - 15 */
-    background: radial-gradient(white, #888, black); /* 标准的语法（必须放在最后） */
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    background: white;
     border-radius: 50%;
-    bottom: calc(2% + 100px);
+    bottom: calc(10% + 100px);
     font-family: "Microsoft YaHei";
     text-shadow: 1px 1px #989999;
     color: white;

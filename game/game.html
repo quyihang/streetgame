@@ -20,7 +20,7 @@
     <script src="js/weapi.js"></script>
     -->
     <script src="js/game.js"></script>
-    <script src="js/controller.js"></script>
+    <!-- <script src="js/controller.js"></script> -->
 </head>
 
 <body>
@@ -85,15 +85,15 @@
             <img src="icons/results/logo.png" style="width:200px;">
         </div>
     </div>
-    <div id="main" style="width:100%;height:100%">
+    <div id="main" style="width:100%;height:100%;background:black;">
         <div id="imgdiv">
             <img src="timg2.png" id="streetimg">
         </div>
         <div id="score">
             <div style="margin:auto;width:344px;">
                 <div style="float:left;width:72px;">
-                    <img src="icons/score/score-left.png">
-                    <div style="position:relative;font-size:x-small;top:-22px;left:4px;" id="question_index">题目：1/10</div>
+                    <!-- <img src="icons/score/score-left.png"> -->
+                    <div style="position:relative;font-size:x-small;top:-22px;left:4px;color:black;">xxxxxxx</div>
                 </div>
                 <div style="float:left;margin-top: 9px;">
                     <div class="circle checked"></div>
@@ -108,8 +108,8 @@
                     <div class="circle"></div>
                 </div>
                 <div style="float:left;width:72px;">
-                    <img src="icons/score/score-right.png">
-                    <div style="position:relative;font-size:x-small;top:-22px;left:12px;" id="total_score">得分：0</div>
+                    <!-- <img src="icons/score/score-right.png"> -->
+                    <div style="position:relative;font-size:x-small;top:12px;left:32px;"  id="question_index">1/10</div>
                 </div>
                 <!-- <div style="float:left;">
                 <img src="icons/score/score-right.png">
@@ -117,12 +117,27 @@
             </div> -->
             </div>
         </div>
+        <div style="text-align:center;">
+        </div>
         <div id="testcss">
+            <img src="icons/pan.png" style="width:200px;margin:25px;">
             <div id="N">N</div>
             <div id="S">S</div>
             <div id="E">E</div>
             <div id="W">W</div>
-            <div id="pan-inner">
+            <div class="angle_numbers">0</div>
+            <div class="angle_numbers">30</div>
+            <div class="angle_numbers">60</div>
+            <div class="angle_numbers">90</div>
+            <div class="angle_numbers">120</div>
+            <div class="angle_numbers">150</div>
+            <div class="angle_numbers">180</div>
+            <div class="angle_numbers">210</div>
+            <div class="angle_numbers">240</div>
+            <div class="angle_numbers">270</div>
+            <div class="angle_numbers">300</div>
+            <div class="angle_numbers">330</div>
+            <!-- <div id="pan-inner">
                 <div style="height: 2px;width: 100%;margin: 64px 0; background: black;position:absolute;transform: rotate(45deg);"></div>
                 <div style="height: 4px;width: 84%;margin: 63px 8%; background: #989999;position:absolute;transform: rotate(45deg);"></div>
                 <div style="height: 100%;width: 2px;margin: 0 64px; background: black;position:absolute;transform: rotate(45deg);"></div>
@@ -131,10 +146,11 @@
                 <div class="triangle" style="margin-left: 100px;margin-top:55px;transform: rotate(90deg);"></div>
                 <div class="triangle" style="margin-left: 55px;margin-top:100px;transform: rotate(180deg);"></div>
                 <div class="triangle" style="margin-left: 10px;margin-top:55px;transform: rotate(270deg);"></div>
-            </div>
+            </div> -->
         </div>
+        <div style="position:absolute;left:50%;bottom:calc(10% + 120px);height:60px;width:0;border:1px solid red;"></div>
         <div id="OKbtn">
-            <div style="margin:12px 10px;font-size: large;">OK</div>
+            <!-- <div style="margin:12px 10px;font-size: large;">OK</div> -->
         </div>
     </div>
 </body>
