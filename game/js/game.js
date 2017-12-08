@@ -305,7 +305,17 @@ function show_pane_final() {
             ctx.arc(100, 100, this.radius, 0, Math.PI * 2, true);  // 坐标为250的圆，这里起始角度是0，结束角度是Math.PI*2
             ctx.lineWidth = this.lineWidth;
             ctx.strokeStyle = this.strokeStyle;
-            ctx.stroke();  // 这里用stroke画一个空心圆，想填充颜色的童鞋可以用fill方法
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(100, 100, this.radius - this.lineWidth / 2, 0, Math.PI * 2, true);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgb(156,190,183)';
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(100, 100, this.radius + this.lineWidth / 2, 0, Math.PI * 2, true);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgb(156,190,183)';
+            ctx.stroke();
         };
 
         function Ring(startAngle, percent) {
