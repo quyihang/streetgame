@@ -74,7 +74,7 @@ function load() {
                     }
                 }
                 if (istaped == true && ismoved == false) {   // 模拟tap事件
-                    // show_pane_final();
+                    show_pane_final();
                     if (pic_index >= pic_index_max) { // 游戏做完
                         finished = true;
                         send_score(edit_title);
@@ -328,7 +328,7 @@ function show_pane_final() {
         }
 
         $("#score-donut").text(totalgoal);
-        if (totalgoal > 60) {
+        if (totalgoal > 55) {
             $("#score-rank").text("男友力max的活地图！");
         } else if (totalgoal > 35) {
             $("#score-rank").text("您的方向感超级好！赞！");
