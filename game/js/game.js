@@ -331,6 +331,7 @@ function show_pane_final() {
             ctx.beginPath();
             var anglePerSec = 2 * Math.PI / (100 / this.percent); // 蓝色的弧度
             ctx.arc(100, 100, this.radius, this.startAngle, this.startAngle + anglePerSec, false); //这里的圆心坐标要和cirle的保持一致
+            ctx.lineWidth = this.lineWidth;
             ctx.strokeStyle = this.fillStyle;
             ctx.lineCap = this.lineCap;
             ctx.stroke();
