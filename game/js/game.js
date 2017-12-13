@@ -15,9 +15,9 @@ function load() {
     init_pan();
     var url;
     if (city == 'shanghai') {
-        url = '/data/streetgame/backstage/load.php?city_index=0';
+        url = '/streetgame/backstage/load.php?city_index=0';
     } else if (city == 'beijing') {
-        url = '/data/streetgame/backstage/load.php?city_index=1';
+        url = '/streetgame/backstage/load.php?city_index=1';
     }
     pic_arr = load_request(url, 1000, update_pic);
     document.addEventListener('touchstart', touch, false);
@@ -234,7 +234,7 @@ function load() {
     }
 
     function send_score(callback) {
-        var commit_url = "/data/streetgame/backstage/commit.php";
+        var commit_url = "/streetgame/backstage/commit.php";
         $.post(commit_url, { ip: ip_local, score: totalgoal, detail: global_pic_arr })
             .done(function (data) {
                 callback();
