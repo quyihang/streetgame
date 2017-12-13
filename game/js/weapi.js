@@ -28,19 +28,19 @@ wx.ready(function () {
         }
     });
     wx.onMenuShareTimeline({
-        title: document.title,
+        title: "方向感测试小游戏",
         desc: '',
-        imgUrl: '/streetgame/game/icons/short.png',
+        imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
         trigger: function (res) {
         },
         success: function (res) {
             document.getElementById('score').innerHTML=('已分享，您的总得分：'+totalgoal);
         },
         cancel: function (res) {
-            alert('已取消');
+            // alert('已取消');
         },
         fail: function (res) {
-            alert(JSON.stringify(res));
+            // alert(JSON.stringify(res));
         }
     });
 });

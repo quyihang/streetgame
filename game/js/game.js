@@ -83,7 +83,7 @@ function load() {
                     } else {
                         var realAngle = Number(global_pic_arr[pic_index]['jpg_direction']);
                         console.log(pic_index + ',' + global_pic_arr[pic_index]['jpg_name'] + ',' + global_pic_arr[pic_index]['jpg_direction']);
-                        oldangle = parseInt(360.0-oldangle);
+                        oldangle = parseInt(360.0 - oldangle);
                         var diff = Math.abs(oldangle - realAngle);
                         global_pic_arr[pic_index]['user_angle'] = oldangle;
                         var goal = 0;
@@ -165,7 +165,7 @@ function load() {
                     $("#W").css("transform", "rotate(" + angle_ + "deg)");
                     $("#S").css("transform", "rotate(" + angle_ + "deg)");
                     $("#E").css("transform", "rotate(" + angle_ + "deg)");
-                    $(".angle_numbers").each(function(){
+                    $(".angle_numbers").each(function () {
                         $(this).css("transform", "rotate(" + angle_ + "deg)");
                     });
                 }
@@ -216,7 +216,7 @@ function load() {
         // htmlobj=$.ajax({url:"http://jsonip.com/"});
         $.ajax({
             url: "http://pv.sohu.com/cityjson",
-            success: function(result){
+            success: function (result) {
                 console.log(result);
             }
         });
@@ -243,6 +243,23 @@ function load() {
 
     function edit_title() {
         document.title = '方向感测试小游戏\n您的总得分：' + totalgoal;
+
+        wx.onMenuShareTimeline({
+            title: '方向感测试小游戏',
+            desc: '您的总得分：' + totalgoal,
+            imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
+            trigger: function (res) {
+            },
+            success: function (res) {
+                document.getElementById('score').innerHTML = ('已分享，您的总得分：' + totalgoal);
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
     }
 }
 
@@ -260,11 +277,11 @@ $(document).ready(function () {
         $("#pane2").fadeOut();
         load();
     });
-    $("#describe-1").on("click", function() {
+    $("#describe-1").on("click", function () {
         $("#describe-1").hide();
         $("#describe-2").show();
     });
-    $("#describe-2").on("click", function() {
+    $("#describe-2").on("click", function () {
         $("#describe-2").hide();
     });
 });
@@ -272,13 +289,13 @@ $(document).ready(function () {
 
 
 function init_pan() {
-    var left_list = [125,180,220,235,220,180, 118,63,22,8,22,62];
-    var top_list = [15,29,70,125,180,220, 235,220,180,125,70,29];
+    var left_list = [125, 180, 220, 235, 220, 180, 118, 63, 22, 8, 22, 62];
+    var top_list = [15, 29, 70, 125, 180, 220, 235, 220, 180, 125, 70, 29];
     var i = 0;
-    $(".angle_numbers").each(function(){
-        $(this).css("left", left_list[i]-5);
-        $(this).css("top", top_list[i]-8);
-        i+=1;
+    $(".angle_numbers").each(function () {
+        $(this).css("left", left_list[i] - 5);
+        $(this).css("top", top_list[i] - 8);
+        i += 1;
     });
 }
 
