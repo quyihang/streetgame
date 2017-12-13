@@ -242,11 +242,11 @@ function load() {
     }
 
     function edit_title() {
-        document.title = '方向感测试小游戏\n您的总得分：' + totalgoal;
+        document.title = '您方向感测试得分：' + totalgoal;
 
         wx.onMenuShareTimeline({
-            title: '方向感测试小游戏 '+'您的总得分：' + totalgoal,
-            desc: '您的总得分：' + totalgoal,
+            title: '您方向感测试得分：' + totalgoal,
+            // desc: '您的总得分：' + totalgoal,
             imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
             trigger: function (res) {
             },
@@ -258,6 +258,20 @@ function load() {
             },
             fail: function (res) {
                 // alert(JSON.stringify(res));
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: '方向感测试小游戏', // 分享标题
+            desc: '您的总得分：' + totalgoal, // 分享描述
+            imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
             }
         });
     }
