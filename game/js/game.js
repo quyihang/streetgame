@@ -246,7 +246,7 @@ function load() {
 
         wx.onMenuShareTimeline({
             title: '您方向感测试得分：' + totalgoal,
-            // desc: '您的总得分：' + totalgoal,
+            link: 'http://www.quyihang.com/streetgame/game/icons/short.png',
             imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
             trigger: function (res) {
             },
