@@ -245,7 +245,7 @@ function load() {
         document.title = '方向感测试小游戏\n您的总得分：' + totalgoal;
 
         wx.onMenuShareTimeline({
-            title: '方向感测试小游戏',
+            title: '方向感测试小游戏 '+'您的总得分：' + totalgoal,
             desc: '您的总得分：' + totalgoal,
             imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
             trigger: function (res) {
