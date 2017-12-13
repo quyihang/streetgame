@@ -246,7 +246,7 @@ function load() {
 
         wx.onMenuShareTimeline({
             title: '您方向感测试得分：' + totalgoal,
-            link: 'http://www.quyihang.com/streetgame/game/icons/short.png',
+            link: 'http://www.quyihang.com/streetgame/game/share.html',
             imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
             trigger: function (res) {
             },
@@ -264,6 +264,7 @@ function load() {
         wx.onMenuShareAppMessage({
             title: '方向感测试小游戏', // 分享标题
             desc: '您的总得分：' + totalgoal, // 分享描述
+            link: 'http://www.quyihang.com/streetgame/game/share.html',
             imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png', // 分享图标
             type: '', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空

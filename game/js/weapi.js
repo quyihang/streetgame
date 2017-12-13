@@ -30,6 +30,7 @@ wx.ready(function () {
     wx.onMenuShareTimeline({
         title: "方向感测试小游戏",
         desc: '',
+        link: 'http://www.quyihang.com/streetgame/game/share.html',
         imgUrl: 'http://www.quyihang.com/streetgame/game/icons/short.png',
         trigger: function (res) {
         },
