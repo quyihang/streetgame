@@ -5,7 +5,7 @@
 var currUrl = window.location.href.replace(window.location.hash, '');
 $.getJSON('/streetgame/backstage/wx/signature.php?url=' + encodeURIComponent(currUrl)).done(function(data) {
     wx.config({
-        debug: true,
+        debug: false,
         appId: data.appId,
         timestamp: data.timestamp,
         nonceStr: data.nonceStr,
@@ -28,9 +28,9 @@ wx.ready(function () {
         }
     });
     wx.onMenuShareTimeline({
-        title: '分享！',
-        desc: '猜猜猜',
-        imgUrl: 'http://mmbiz.qpic.cn/mmbiz_jpg/pJg18ia79wRLKxSkicuvRfuLgicUDdvEJHKl6vibQB9J9scEiaFl2rsoxkPLQxR2V4ibBvNLz5Qibuqp6cgN7mia5MyUHg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
+        title: document.title,
+        desc: '',
+        imgUrl: '/streetgame/game/icons/short.png',
         trigger: function (res) {
         },
         success: function (res) {
