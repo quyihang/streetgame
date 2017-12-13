@@ -29,8 +29,8 @@ wx.ready(function () {
     });
     wx.onMenuShareTimeline({
         title: '分享！',
-        desc: '好想愉快地装逼啊',
-        imgUrl: 'http://img3.douban.com/view/movie_poster_cover/spst/public/p2166127561.jpg',
+        desc: '猜猜猜',
+        imgUrl: 'http://mmbiz.qpic.cn/mmbiz_jpg/pJg18ia79wRLKxSkicuvRfuLgicUDdvEJHKl6vibQB9J9scEiaFl2rsoxkPLQxR2V4ibBvNLz5Qibuqp6cgN7mia5MyUHg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1',
         trigger: function (res) {
         },
         success: function (res) {
